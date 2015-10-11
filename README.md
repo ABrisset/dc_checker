@@ -11,4 +11,4 @@ development:
   port:
 ```
 
-Then just run ./checker.rb in your terminal !
+Then just run ./checker.rb followed by a URL and a database name.
