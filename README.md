@@ -12,3 +12,8 @@ development:
 ```
 
 Then just run ./checker.rb followed by a URL and a database name.
+
+## TO DO
+
+* Check response code and content type before inserting into database
+* Add begin/rescue blocks
