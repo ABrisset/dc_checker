@@ -1,0 +1,65 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ scraper google : deux extensions google chrome • antoine brisset 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         
+  accueil  
+  blog  
+  contact  
+     
+  
+  
+ scraper google avec deux plug-ins chrome 
+     outils seo  
+  
+     blog seo  >  outils seo  
+ publié le 29 may 2013 
+ quand on n'a pas scrapebox ou rddz sous la main pour scraper les résultats de google, il est intéressant de disposer d'outils qui pourront faire le travail malgré tout. je vais donc vous présenter une petite méthode 'artisanale' pour récupérer les résultats de google en quelques clics. 
+ charger les pages de résultats   tout d'abord, commencez par installer sur votre navigateur google chrome l'extension autopager disponible  ici , que j'avais découverte via  un article de 512banque . cette extension permet, dans le cadre d'une pagination, de charger la page suivante dès que vous arrivez à la fin de la précédente. une sorte d'infinite scroll à activer sur demande qui vous fera économiser de nombreux clics.   une fois l'extension activée, rendez-vous sur google et testez la en formulant une requête. vous devriez voir apparaître ceci en bas de page :       vous pouvez ensuite si vous le voulez définir le nombre de pages à précharger en cliquant sur “load” et en indiquant le nombre de pages voulues.   extraire les résultats avec xpath helper   une fois que vous avez chargé toutes vos pages, l'objectif va être de rechercher dans le dom les éléments qui nous intéressent, à savoir les liens de résultats google. pour cela, nous allons utiliser l'extension  xpath helper . celle-ci permet d'extraire le contenu du dom en exécutant les requêtes xpath de notre choix. pour la télécharger, ça se passe  ici . il vous suffit de faire la combinaison de touches ctl + maj + x pour lancer l'extension qui s'affiche sous forme d'overlay en haut de votre navigateur.   il ne reste plus qu'à lancer une requête google, identifier le chemin xpath des résultats de recherche et extraire le contenu. la chaîne xpath est la suivante :        //h3[@class="r"]/a/@href
+    vous devriez donc obtenir ce genre de résultats :       copiez les urls de la partie “results” et collez les dans votre éditeur de texte favori. 99% des urls retrouvées devrait être au bon format, cependant il se peut que vous trouviez dans votre échantillon quelques urls sous la forme url?sa=…   avec la regex ci-dessous, vous pourrez isoler l'url recherchée :   rechercher        ^\/.*url=(.*)&ei=.*$
+    remplacer        $1
+    il ne restera plus qu'à décoder les urls concernées. certains éditeurs de texte tels que sublime text proposent des plugins d'url encode/decode qui font très bien l'affaire ;)   bien entendu, cette méthode ne gère pas la question des proxies. elle est donc à considérer comme une alternative légère à des solutions plus puissantes pour scraper en masse…        comments powered by  disqus      
+  
+ 
+ 
+   saint andré lez lille 
+ 
+   06 12 71 82 78 
+ 
+    contact@antoine-brisset.com   
+ 
+ 
+      
+      
+      
+ 
+  © 2015 -  antoine brisset 
+ 
+  
+ 
+ 

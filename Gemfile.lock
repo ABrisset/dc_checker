@@ -1,0 +1,48 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    anemone (0.7.2)
+      nokogiri (>= 1.3.0)
+      robotex (>= 1.0.0)
+    bind-it (0.2.7)
+      rjb (~> 1.4.3)
+    birch (0.0.8)
+    gsl (1.16.0.6)
+    htmlentities (4.3.4)
+    jaccard (1.0.2)
+    json (1.8.3)
+    mime-types (1.25.1)
+    mini_portile (0.6.2)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
+    progressbar (0.21.0)
+    rjb (1.4.9)
+    robotex (1.0.0)
+    rubyzip (0.9.9)
+    schiphol (1.0.1)
+      progressbar (>= 0.10.0)
+      rubyzip (~> 0.9.9)
+    similarity (0.2.5)
+      gsl
+    stanford-core-nlp (0.5.1)
+      bind-it (~> 0.2.5)
+    treat (2.1.0)
+      birch
+      schiphol
+      yomu
+    unidecoder (1.1.2)
+    yomu (0.2.2)
+      json (~> 1.8)
+      mime-types (~> 1.23)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  anemone
+  htmlentities
+  jaccard
+  similarity
+  stanford-core-nlp
+  treat
+  unidecoder

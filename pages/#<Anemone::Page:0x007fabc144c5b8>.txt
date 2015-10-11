@@ -1,0 +1,62 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ recherches associées google : décryptage + scraper • antoine brisset 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         
+  accueil  
+  blog  
+  contact  
+     
+  
+  
+ recherches associées google : décryptage et méthode de scrape 
+     outils seo  
+  
+     blog seo  >  outils seo  
+ publié le 30 may 2014 
+ depuis quelques temps, le blog de  bill slawski  est entré dans mes favoris. en décryptant les différents brevets publiés par google, cet auteur très réputé aux etats unis permet aux référenceurs de mieux comprendre comment fonctionne google et surtout de découvrir quelles méthodes de traitement automatiquement du langage sont à l'oeuvre du côté de mountain view. ses billets sur les recherches associées ou  related queries  ont particulièrement attiré mon attention. ce sera donc l'objet de cet article, avec, en bonus, un petit script maison pour scraper les recherches associées avec casperjs (voir  l'article de 512banque  pour une présentation sous l'angle seo). 
+ comment google détermine-t-il les “entités” à associer à une recherche ?   ce sujet ayant été peu abordé dans la blogosphère seo française, je vous propose de vous donner quelques éléments de réflexion que j'ai pu trouver, en lisant notamment le blog seobythesea.   lorsque vous soumettez une requête sur google, le moteur de recherche va effectuer plusieurs traitements pour déterminer des termes “candidats” qui pourront être associés à votre requête et affichés en tant que “recherches associées”, vous permettant ainsi d'affiner votre recherche initiale.   ces termes candidats sont appelés des “entités” dans les différents brevets de google. ce concept d'entité fait grand bruit aux etats-unis et au royaume-uni en ce moment, un peu moins en france. pour ceux qui ne seraient pas familiers avec ce terme, l'entité va au-delà de la simple chaîne de caractères, car elle se conçoit en relation avec d'autres entités,  dans un contexte . concrètement, les entités peuvent être des personnes (people), des lieux (place) ou des choses (thing).   si l'on se réfère en particulier aux travaux d'ori allon, brevetés par google, et que l'on considère que les méthodes décrites dans ses travaux sont encore d'actualité chez google, le moteur de recherche américain serait aujourd'hui en mesure d'utiliser 3 sources de données pour trouver des termes candidats au  “refinement”  de la requête initiale, comme expliqué  dans cet article  de bill slawski que je vais essayer de retranscrire ci-dessous.   1. les documents retournés dans les résultats de recherche pour la requête initiale   pour déterminer les entités associées à chacun de ces documents, google pourrait vérifier quelles sont les mots-clés les plus significatifs de chaque document en appliquant tout d'abord un score  idf  (inverse document frequency) à chacune des entités trouvées dans le document. si une entité apparait de nombreuses fois dans les documents indexés sur cette requête, ce n'est pas forcément un bon candidat, car pas suffisamment discriminant pour ce document. d'où l'idée de calculer cet idf.   cet idf pourrait être combiné à un score de co-occurences, c'est-à-dire au nombre de fois où cette entité apparait dans le document : la probabilité que cette entité soit importante pour le document étant plus forte si elle apparait de nombreuses fois au sein de ce document.   si l'entité apparait dans le title, le score de cet entité pourrait également augmenter.   2. le comportement de recherche des internautes   google pourrait également s'intéresser au nombre de fois où l'entité candidate est apparue dans les recherches précédentes (logs), sur une période donnée.   de même, si pour plusieurs requêtes successives qui contiennent l'entité candidate, un même document est retourné comme résultat, google pourrait prendre en compte le temps de consultation de ce document, qualifié de “dwell time”. s'il est jugé suffisant, le document est considéré comme pertinent par rapport à l'entité. plus ce temps passé sur la page est long, plus le score de l'entité augmente.   3. la fraicheur des résultats   pour garantir des recherches associées en corrélation avec l'actualité, google pourrait également prendre en considération certaines sources d'informations “chaudes” comme des articles de presse, des articles de blog, des sites de microblogging (hello twitter) et vérifier si certaines entités retrouvées dans ces sources sont pertinentes par rapport à la requête initiale.   une fois les entités collectées pour chaque document, via les 3 sources de données que je viens de présenter, le processus de sélection des entités à retenir pourrait s'appuyer sur :     la longueur de l'entité (nombre de tokens)   le nombre de fois où ces entités apparaissent dans les résultats de recherche pour la requête initiale   le degré de correspondance entre la requête initiale et l'entité   le nombre de fois où l'entité est apparue dans les logs de recherche, et avec quelle intensité   la somme des idf des tokens composant l'entité   etc.     j'espère avoir su restituer de façon assez claire les explications de bill slawski et avoir pu mettre en lumière quelques uns des mécanismes qui se cachent derrière ces fameuses recherches associées, et que vous trouverez une utilité à les intégrer dans votre travail de référencement.   faîtes une recherche sur google, ouvrez quelques pages de résultats, identifiez des mots-clés significatifs puis jetez ensuite un coup d'oeil aux recherches associées. vous devriez faire quelques rapprochements ;)   je vous donne maintenant un petit coup de pouce avec ce script casperjs qui va vous permettre de les scraper très facilement, depuis votre console.   scrapez les recherches associées avec casperjs   avec casperjs, on peut faire un peu tout et n'importe quoi : scraper des élements html, soumettre des formulaires, prendre des screenshots, suivre des liens, etc.   j'ai donc utilisé cet utilitaire javascript pour scraper les mots-clés des recherches associées google.   après avoir passé un mot-clé en argument, casper se connecte sur google.fr, effectue une recherche sur ce mot-clé, scrape le texte contenu dans les balises “a” du bloc de recherches associées et les affiche les unes à la suite des autres, en console.   j'ai ajouté le code  sur github . bon scraping !        comments powered by  disqus      
+  
+ 
+ 
+   saint andré lez lille 
+ 
+   06 12 71 82 78 
+ 
+    contact@antoine-brisset.com   
+ 
+ 
+      
+      
+      
+ 
+  © 2015 -  antoine brisset 
+ 
+  
+ 
+ 

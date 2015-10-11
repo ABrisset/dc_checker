@@ -1,0 +1,131 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ seo on-site • antoine brisset 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         
+  accueil  
+  blog  
+  contact  
+     
+ 
+   seo on-site   
+  
+ 
+ catégories :  
+  seo on-site  
+  administration serveur  
+  scripts seo  
+  outils seo  
+ 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  désindexer une page cms sous magento  
+    6 oct 2015 
+ cet article tient davantage du mémo que du billet. il me permettra, ainsi qu'à vous je l'espère, d'avoir sous la main un reminder sur la façon de désindexer une page cms avec magento, sans mettre les mains dans le cambouis. 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  bonnes pratiques seo sous ruby on rails - 1ère partie  
+    27 may 2015 
+ après avoir passé quelques années à bidouiller des petits scripts en ruby, je me suis lancé l’année dernière dans l’apprentissage de ruby on rails, grâce notamment à  ce livre de stefan wintermeyer , que je recommande d’ailleurs vivement à tous ceux qui seraient désireux d’apprendre les bases de ror. n’étant pas développeur de formation, ce framework est pour moi vraiment intéressant dans le sens où il permet de développer rapidement et sans trop de prise de tête des applications plus ou moins complexes. ayant suffisamment de recul sur le fonctionnement de rails, je vous propose une série d’articles sous forme d’astuces pour optimiser les fondamentaux seo de votre application ruby on rails. c’est parti pour la 1ère partie ! 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  webmaster tools : comment google compte-t-il les liens internes ?  
+    3 may 2014 
+ après avoir essayé de décrypter la façon dont google comptait  les occurences de mots-clés , j'ai cette fois-ci mené l'enquête sur l'onglet  trafic de recherche > liens internes  de google webmaster tools, qui est, de mon point de vue en tout cas, peu utilisé / analysé par les seo. l'objectif de ce test était de savoir si google comptabilisait ou non les liens multiples pointant d'une page interne a vers une page interne b (cf  first link counts rule ) 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  octopress : 10 conseils d'optimisation seo  
+    26 jan 2014 
+ si  octopress  est incomparable en termes de performances, il présente quelques lacunes quant à l'optimisation pour le référencement. je vous propose donc dans cet article 10 astuces simples à mettre en place pour rendre le framework plus seo friendly 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  méfiez-vous des plugins wordpress seo-friendly  
+    7 jan 2014 
+ wordpress est un cms très pratique quand il s'agit de monter un petit projet sans devoir trop mettre les mains dans le cambouis. le gros avantage est en effet de pouvoir utiliser la myriade de plugins disponibles pour greffer différentes fonctionnalités au site, sans même quitter la console d'admin. pour autant, il convient de rester vigilant lors de l'utilisation d'un plugin. retour d'expérience. 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  mots-clés de contenu google webmaster tools : sur quel contenu porte l'analyse ?  
+    24 dec 2013 
+ si vous possédez un compte webmaster tools et que vous y avez inscrit vos sites, vous avez peut être déjà remarqué l'onglet 'mots-clés de contenu' dans la section 'index google'. la  documentation officielle  précise qu'il s'agit là d'un échantillon des mots-clés les plus représentatifs trouvés par google lors de l'exploration du site. mais savez-vous comment google s'y prend pour calculer le nombre d'occurences ? je vous donne ici ma vision des faits. il ne s'agit que d'une interprétation personnelle, je ne prétends pas vous donner une vérité, d'ailleurs vous le verrez, j'arrive difficilement à une conclusion solide 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  optimisation de tumblr pour le référencement  
+    25 mar 2013 
+ tumblr est une plateforme qui a le vent en poupe depuis maintenant quelques années. fortement socialisée, elle bénéficie d'un réel pouvoir communautaire et peut également, comme toute plateforme de blogging gratuite, être utilisée dans une stratégie globale de référencement naturel. néanmoins, par défaut, la plupart des thèmes présentent des lacunes en termes d'optimisation on-site. voici donc quelques conseils pour en faire une plateforme performante pour le seo. 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+   saint andré lez lille 
+ 
+   06 12 71 82 78 
+ 
+    contact@antoine-brisset.com   
+ 
+ 
+      
+      
+      
+ 
+  © 2015 -  antoine brisset 
+ 
+  
+ 
+ 

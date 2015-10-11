@@ -1,0 +1,79 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ magento : ajouter noindex sur une page cms • antoine brisset 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         
+  accueil  
+  blog  
+  contact  
+     
+  
+  
+ désindexer une page cms sous magento 
+     seo on-site  
+  
+     blog seo  >  seo on-site  
+ publié le 6 oct 2015 
+ cet article tient davantage du mémo que du billet. il me permettra, ainsi qu'à vous je l'espère, d'avoir sous la main un reminder sur la façon de désindexer une page cms avec magento, sans mettre les mains dans le cambouis. 
+ la manipulation   pour empêcher l'indexation d'une page cms sous magento, outre la possibilité de passer par le .htaccess et le x-robots-tag ou encore d'installer un plug-in, il existe une solution simple, accessible à quiconque possède un accès au back-office et rapide à mettre en oeuvre.   rendez-vous dans  cms > pages , cliquez sur la page voulue, puis, une fois la page chargée, sur l'onglet  design . dans le champ  xml de mise à jour d'agencement , entrez ce bloc     <reference   name=  "head"  > 
+   <action   method=  "setrobots"  > 
+     <value> noindex, follow </value> 
+   </action> 
+ </reference> 
+    pour quoi faire ?   pourquoi utiliser ce bloc ? tout simplement pour empêcher l'indexation de pages dupliquées, ou de pages que vous ne souhaitez pas voir apparaître dans les pages de résultats google. vous pouvez également, de même manière, utiliser ce bloc pour mettre à jour votre balise title.     <reference   name=  "head"  > 
+    <action   method=  "settitle"  > 
+     <value> ma balise title </value> 
+   </action> 
+ </reference> 
+    bien évidemment, on peut obtenir le même résultat en modifiant, directement, le nom de la page, mais je trouve que c'est plus propre et moins intrusif de passer par ce bloc de code.   enfin, sachez qu'il est possible d'utiliser ce bloc à d'autres fins que le seo, par exemple pour appeler un fichier css custom.     <!--- appel du fichier css custom.css situé dans le répertoire /skin/frontend/default/your_theme/css --> 
+ <reference   name=  "head"  > 
+   <action   method=  "additem"  > 
+      <type> skin_css </type> 
+      <name> custom.css </name> 
+   </action> 
+ </reference> 
+    a vous de jouer !        comments powered by  disqus      
+  
+ 
+ 
+   saint andré lez lille 
+ 
+   06 12 71 82 78 
+ 
+    contact@antoine-brisset.com   
+ 
+ 
+      
+      
+      
+ 
+  © 2015 -  antoine brisset 
+ 
+  
+ 
+ 

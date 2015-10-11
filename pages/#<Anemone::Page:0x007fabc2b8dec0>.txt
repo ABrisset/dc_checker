@@ -1,0 +1,212 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ blog seo & ruby • antoine brisset 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         
+  accueil  
+  blog  
+  contact  
+     
+ 
+   blog seo & ruby   
+  
+ 
+ catégories :  
+  seo on-site  
+  administration serveur  
+  scripts seo  
+  outils seo  
+ 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  désindexer une page cms sous magento  
+    6 oct 2015 
+ cet article tient davantage du mémo que du billet. il me permettra, ainsi qu'à vous je l'espère, d'avoir sous la main un reminder sur la façon de désindexer une page cms avec magento, sans mettre les mains dans le cambouis. 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  bonnes pratiques seo sous ruby on rails - 1ère partie  
+    27 may 2015 
+ après avoir passé quelques années à bidouiller des petits scripts en ruby, je me suis lancé l’année dernière dans l’apprentissage de ruby on rails, grâce notamment à  ce livre de stefan wintermeyer , que je recommande d’ailleurs vivement à tous ceux qui seraient désireux d’apprendre les bases de ror. n’étant pas développeur de formation, ce framework est pour moi vraiment intéressant dans le sens où il permet de développer rapidement et sans trop de prise de tête des applications plus ou moins complexes. ayant suffisamment de recul sur le fonctionnement de rails, je vous propose une série d’articles sous forme d’astuces pour optimiser les fondamentaux seo de votre application ruby on rails. c’est parti pour la 1ère partie ! 
+ 
+ 
+ 
+ 
+   outils seo 
+ 
+  recherches associées google : décryptage et méthode de scrape  
+    30 may 2014 
+ depuis quelques temps, le blog de  bill slawski  est entré dans mes favoris. en décryptant les différents brevets publiés par google, cet auteur très réputé aux etats unis permet aux référenceurs de mieux comprendre comment fonctionne google et surtout de découvrir quelles méthodes de traitement automatiquement du langage sont à l'oeuvre du côté de mountain view. ses billets sur les recherches associées ou  related queries  ont particulièrement attiré mon attention. ce sera donc l'objet de cet article, avec, en bonus, un petit script maison pour scraper les recherches associées avec casperjs (voir  l'article de 512banque  pour une présentation sous l'angle seo). 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  webmaster tools : comment google compte-t-il les liens internes ?  
+    3 may 2014 
+ après avoir essayé de décrypter la façon dont google comptait  les occurences de mots-clés , j'ai cette fois-ci mené l'enquête sur l'onglet  trafic de recherche > liens internes  de google webmaster tools, qui est, de mon point de vue en tout cas, peu utilisé / analysé par les seo. l'objectif de ce test était de savoir si google comptabilisait ou non les liens multiples pointant d'une page interne a vers une page interne b (cf  first link counts rule ) 
+ 
+ 
+ 
+ 
+   outils seo 
+ 
+  unix : 5 commandes de base utiles pour le seo  
+    15 apr 2014 
+ au quotidien, quand on travaille avec un système d'exploitation comme os x ou linux, il est pratique de pouvoir lancer certaines commandes dans le shell pour manipuler des fichiers, obtenir des informations sur des pages web, mesurer des temps de réponses, etc. certaines commandes peuvent avoir un véritable intérêt pour le seo. j'en donne ici 5 parmi mes favorites. 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  octopress : 10 conseils d'optimisation seo  
+    26 jan 2014 
+ si  octopress  est incomparable en termes de performances, il présente quelques lacunes quant à l'optimisation pour le référencement. je vous propose donc dans cet article 10 astuces simples à mettre en place pour rendre le framework plus seo friendly 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  méfiez-vous des plugins wordpress seo-friendly  
+    7 jan 2014 
+ wordpress est un cms très pratique quand il s'agit de monter un petit projet sans devoir trop mettre les mains dans le cambouis. le gros avantage est en effet de pouvoir utiliser la myriade de plugins disponibles pour greffer différentes fonctionnalités au site, sans même quitter la console d'admin. pour autant, il convient de rester vigilant lors de l'utilisation d'un plugin. retour d'expérience. 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  mots-clés de contenu google webmaster tools : sur quel contenu porte l'analyse ?  
+    24 dec 2013 
+ si vous possédez un compte webmaster tools et que vous y avez inscrit vos sites, vous avez peut être déjà remarqué l'onglet 'mots-clés de contenu' dans la section 'index google'. la  documentation officielle  précise qu'il s'agit là d'un échantillon des mots-clés les plus représentatifs trouvés par google lors de l'exploration du site. mais savez-vous comment google s'y prend pour calculer le nombre d'occurences ? je vous donne ici ma vision des faits. il ne s'agit que d'une interprétation personnelle, je ne prétends pas vous donner une vérité, d'ailleurs vous le verrez, j'arrive difficilement à une conclusion solide 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  créer une tâche cron seo avec whenever, mail et amazon ec2  
+    12 nov 2013 
+ quand on bosse le seo d'un site, on est souvent amené à corriger des petits bugs, bien souvent après qu'ils se soient déclarés. en automatisant certaines tâches, de manière quotidienne ou hebdomadaire, on peut être alerté plus rapidement des éventuels problèmes ou mettre en place un système de monitoring sur certaines données. 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  tester la validité d'un proxy avec ruby  
+    18 aug 2013 
+ pour ne pas se faire refouler par google quand on lui envoie trop de requêtes en automatique, il est important de se munir de proxies. mais encore faut-il qu'ils soient valides ! qu'ils soient  publics  ou privés, l'important, c'est donc de pouvoir tester leur validité avant d'entamer toute action de scraping. 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  comparer deux sets d'urls avec ruby  
+    11 aug 2013 
+ dans le cadre d'une refonte, souvent, les urls d'un site sont modifiées et générées selon de nouvelles règles : ajout de répertoires, modification du séparateur d'url, renommage de catégories, etc. cela oblige donc à créer tout un paquet de redirections, afin d'assurer une transition correcte en termes de pr, d'indexation et de trafic moteur. je vous propose ici un petit script ruby, qui vous permettra de préparer le terrain en matchant vos anciennes urls avec les nouvelles... 
+ 
+ 
+ 
+ 
+   outils seo 
+ 
+  scraper google avec deux plug-ins chrome  
+    29 may 2013 
+ quand on n'a pas scrapebox ou rddz sous la main pour scraper les résultats de google, il est intéressant de disposer d'outils qui pourront faire le travail malgré tout. je vais donc vous présenter une petite méthode 'artisanale' pour récupérer les résultats de google en quelques clics. 
+ 
+ 
+ 
+ 
+   administration serveur 
+ 
+  ajouter un x-robots-tag avec nginx  
+    18 apr 2013 
+ un article très court pour une fois. pour ceux qui passent de apache à nginx et qui souhaiteraient savoir comment ajouter un x-robots-tag dans le header http, voici quelle est la manière de procéder. 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  scraper facilement avec ruby et nokogiri  
+    15 apr 2013 
+ le scraping est l'une des actions qui fait partie du quotidien d'un seo. on peut s'en servir par exemple en phase d'audit pour extraire le contenu de certaines balises, en phase de netlinking pour extraire les résultats google, etc. je vais vous présenter ici un petit script ruby réalisé avec l'aide de  @clement_ , et qui vous sera peut-être utile si vous n'avez pas sous la main un logiciel approprié. vous pourrez l'exécuter directement en console et récupérer ainsi rapidement ce dont vous avez besoin. 
+ 
+ 
+ 
+ 
+   seo on-site 
+ 
+  optimisation de tumblr pour le référencement  
+    25 mar 2013 
+ tumblr est une plateforme qui a le vent en poupe depuis maintenant quelques années. fortement socialisée, elle bénéficie d'un réel pouvoir communautaire et peut également, comme toute plateforme de blogging gratuite, être utilisée dans une stratégie globale de référencement naturel. néanmoins, par défaut, la plupart des thèmes présentent des lacunes en termes d'optimisation on-site. voici donc quelques conseils pour en faire une plateforme performante pour le seo. 
+ 
+ 
+ 
+ 
+   administration serveur 
+ 
+  comment effectuer une redirection nginx ?  
+    21 mar 2013 
+ dans le petit monde des serveurs http, nginx est encore peu répandu, en comparaison de son cousin apache. néanmoins, cette techno d'origine russe est très intéressante d'un point de vue performances. les plus gros sites l'ont d'ailleurs adopté : github et wordpress tournent ainsi sous 'engine-x'... 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+   saint andré lez lille 
+ 
+   06 12 71 82 78 
+ 
+    contact@antoine-brisset.com   
+ 
+ 
+      
+      
+      
+ 
+  © 2015 -  antoine brisset 
+ 
+  
+ 
+ 

@@ -1,0 +1,104 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ scripts seo • antoine brisset 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         
+  accueil  
+  blog  
+  contact  
+     
+ 
+   scripts seo   
+  
+ 
+ catégories :  
+  seo on-site  
+  administration serveur  
+  scripts seo  
+  outils seo  
+ 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  créer une tâche cron seo avec whenever, mail et amazon ec2  
+    12 nov 2013 
+ quand on bosse le seo d'un site, on est souvent amené à corriger des petits bugs, bien souvent après qu'ils se soient déclarés. en automatisant certaines tâches, de manière quotidienne ou hebdomadaire, on peut être alerté plus rapidement des éventuels problèmes ou mettre en place un système de monitoring sur certaines données. 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  tester la validité d'un proxy avec ruby  
+    18 aug 2013 
+ pour ne pas se faire refouler par google quand on lui envoie trop de requêtes en automatique, il est important de se munir de proxies. mais encore faut-il qu'ils soient valides ! qu'ils soient  publics  ou privés, l'important, c'est donc de pouvoir tester leur validité avant d'entamer toute action de scraping. 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  comparer deux sets d'urls avec ruby  
+    11 aug 2013 
+ dans le cadre d'une refonte, souvent, les urls d'un site sont modifiées et générées selon de nouvelles règles : ajout de répertoires, modification du séparateur d'url, renommage de catégories, etc. cela oblige donc à créer tout un paquet de redirections, afin d'assurer une transition correcte en termes de pr, d'indexation et de trafic moteur. je vous propose ici un petit script ruby, qui vous permettra de préparer le terrain en matchant vos anciennes urls avec les nouvelles... 
+ 
+ 
+ 
+ 
+   scripts seo 
+ 
+  scraper facilement avec ruby et nokogiri  
+    15 apr 2013 
+ le scraping est l'une des actions qui fait partie du quotidien d'un seo. on peut s'en servir par exemple en phase d'audit pour extraire le contenu de certaines balises, en phase de netlinking pour extraire les résultats google, etc. je vais vous présenter ici un petit script ruby réalisé avec l'aide de  @clement_ , et qui vous sera peut-être utile si vous n'avez pas sous la main un logiciel approprié. vous pourrez l'exécuter directement en console et récupérer ainsi rapidement ce dont vous avez besoin. 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+   saint andré lez lille 
+ 
+   06 12 71 82 78 
+ 
+    contact@antoine-brisset.com   
+ 
+ 
+      
+      
+      
+ 
+  © 2015 -  antoine brisset 
+ 
+  
+ 
+ 

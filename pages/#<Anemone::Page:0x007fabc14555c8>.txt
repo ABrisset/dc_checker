@@ -1,0 +1,118 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ unix : 5 commandes de base utiles pour le seo • antoine brisset 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         
+  accueil  
+  blog  
+  contact  
+     
+  
+  
+ unix : 5 commandes de base utiles pour le seo 
+     outils seo  
+  
+     blog seo  >  outils seo  
+ publié le 15 apr 2014 
+ au quotidien, quand on travaille avec un système d'exploitation comme os x ou linux, il est pratique de pouvoir lancer certaines commandes dans le shell pour manipuler des fichiers, obtenir des informations sur des pages web, mesurer des temps de réponses, etc. certaines commandes peuvent avoir un véritable intérêt pour le seo. j'en donne ici 5 parmi mes favorites. 
+ curl -i pour les en-têtes http   pour vérifier le contenu des en-têtes http, et au lieu de passer par un plugin firefox/chrome aux résultats parfois hasardeux – poke  @nicemedia_fr , il est possible d'éxécuter la commande  curl -i  suivie de l'url que l'on souhaite inspecter. cette commande va générer une requête head sur le document demandé et retourner des informations aussi utiles que :     le code réponse du serveur   la taille du body, en octets   les informations relatives à la mise en cache (last-modified, expires, etc.)   le type de serveur utilisé   la présence éventuelle d'un link rel canonical   la présence éventuelle d'un  x-robots-tag 
+   etc.      curl -i http://blog.antoine-brisset.com
+
+http/1.1 200 ok
+x-amz-id-2: krgm1zdr8dp54uipnmuszaxbvl2r//uck2xcmpyszteyf9xowi2u+m4xkjnnxpu/
+x-amz-request-id: a8a88a89e04caa52
+date: tue, 15 apr 2014 20:45:25 gmt
+last-modified: tue, 04 feb 2014 12:43:39 gmt
+etag: "8b29264e6c647421e35f82b60a64c75a"
+content-type: text/html
+content-length: 18209
+server: amazons3
+
+    wget pour les redirections   vous devez tester rapidement une ou plusieurs redirections 301 mises en place sur votre site ? c'est wget qu'il faut utiliser. par défaut,  wget  permet de suivre jusqu'à 20 redirections. vous pouvez changer ce comportement par défaut avec l'option –max-redirect.    wget antoine-brisset.com --max-redirect=1 -o /dev/null
+
+--2014-04-17 08:00:04--  http://antoine-brisset.com/
+resolving antoine-brisset.com... 213.186.33.19
+connecting to antoine-brisset.com|213.186.33.19|:80... connected.
+http request sent, awaiting response... 301 moved permanently
+location: http://www.antoine-brisset.com/ [following]
+--2014-04-17 08:00:05--  http://www.antoine-brisset.com/
+resolving www.antoine-brisset.com... 213.186.33.19
+reusing existing connection to antoine-brisset.com:80.
+http request sent, awaiting response... 200 ok
+length: 5110 (5.0k) [text/html]
+saving to: ‘/dev/null’
+    a noter que le programme wget permet de lancer de nombreuses autres tâches comme le téléchargement récursif de fichiers par exemple.   host pour les dns lookup   pour effectuer des reverse dns, autrement dit pour convertir des adresses ip en nom de domaine, il suffit de lancer la commande  host  suivi de l'ip à interroger. utile pour vérifier googlebot par exemple.    host 66.249.66.1
+
+1.66.249.66.in-addr.arpa domain name pointer crawl-66-249-66-1.googlebot.com.
+    a noter qu'il existe aussi sa petite cousine “dig”, qui elle donne des informations détaillées sur les enregistrements dns.   whois pour les noms de domaines   pour avoir des infos sur les noms de domaine, par exemple si vous cherchez à récupérer un mail de contact dans votre démarche de partenariat  netlinking  (tiens, ça fait longtemps que je n'avais pas utilisé ce mot), lancez la commande  whois  suivi du domaine visé, et vous obtenez toutes les infos relatives à l'enregistrement du domaine : registrar, contact technique, date d'enregistrement du domaine, date d'expiration, etc.    whois antoine-brisset.com
+
+whois server version 2.0
+
+domain names in the .com and .net domains can now be registered
+with many different competing registrars. go to http://www.internic.net
+for detailed information.
+
+   domain name: antoine-brisset.com
+   registrar: ovh
+   whois server: whois.ovh.com
+   referral url: http://www.ovh.com
+   name server: dns17.ovh.net
+   name server: ns17.ovh.net
+   status: clientdeleteprohibited
+   status: clienttransferprohibited
+   updated date: 06-dec-2013
+   creation date: 05-dec-2010
+   expiration date: 05-dec-2014
+    curl -w pour les temps de réponse   j'ai récemment découvert que l'on pouvait utiliser curl pour afficher en sortie dans la console un certain nombre de données relatives aux temps de chargement des pages, à l'aide de  variables  telles que :     %{time_namelookup} : le temps de résolution dns   %{time_connect} : le temps de connexion au serveur   %{time_starttransfer} : le ttfb (time to first byte), c'est à dire le temps qui s'écoule avant que ne soit reçu le premier octet de données par le client   %{time_total} : le temps total de chargement, qui mesure le temps écoulé jusqu'au dernier octet transféré     les temps de réponses sont donnés en millisecondes. en formatant la sortie dans le terminal (flag -w), on peut obtenir des choses assez sympas :    curl -w '\nrésolution dns:\t%{time_namelookup}\nconnexion au serveur:\t%{time_connect}\nttfb:\t%{time_starttransfer}\n\n-----------\ntotal time:\t%{time_total}\n' -o /dev/null -s http://blog.antoine-brisset.com/
+
+résolution dns: 0,003
+connexion au serveur: 0,107
+ttfb: 0,279
+
+-----------
+total time: 0,286
+    en analysant les données de l'output, on peut avoir quelques idées d'optimisation. a noter que le -s signifie “silent”, il permet de ne pas afficher de barre de progression ou de message d'erreur. je signale au passage l'outil ab (apache benchmark) que j'ai découvert via  @jeanbenoit , et qui mesure tout un tas de choses relatives à votre serveur apache.   et voilà pour ce tour d'horizon des commandes unix/linux utiles pour le seo. j'aurais pu citer également gunzip, diff et bien d'autres commandes mais cela fera peut être l'objet d'un prochain article :)        comments powered by  disqus      
+  
+ 
+ 
+   saint andré lez lille 
+ 
+   06 12 71 82 78 
+ 
+    contact@antoine-brisset.com   
+ 
+ 
+      
+      
+      
+ 
+  © 2015 -  antoine brisset 
+ 
+  
+ 
+ 
