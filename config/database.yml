@@ -1,6 +1,0 @@
-development:
-  host: localhost
-  username: abrisset
-  password: ftfiwtbdu62mysql
-  encoding: utf8
-  port: 3306
