@@ -117,7 +117,7 @@ end
 
 ## Compute salton cosine
 corpus        = Corpus.new
-array_of_docs = Array.new()
+array_of_docs = Array.new
 pages         = $connection.query("SELECT absolute_url,content FROM pages")
 pages.each do |row|
   absolute_url  = row['absolute_url']
