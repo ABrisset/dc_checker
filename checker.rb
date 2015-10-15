@@ -60,38 +60,39 @@ Anemone.crawl(root_url, :redirect_limit => 1) do |anemone|
   skipped_links = %r{%23.*|\#.*|.*\.(pdf|jpg|jpeg|png|gif)}
   anemone.skip_links_like(skipped_links)
   anemone.on_every_page do |page|
+    if page.html? && page.code.between?(200,399)
+      # Catch absolute URL
+      absolute_url = URI.decode(page.url.to_s)
+      puts absolute_url
 
-    # Catch absolute URL
-    absolute_url = URI.decode(page.url.to_s)
-    puts absolute_url
+      # Scrape content
+      scraper = Scraper.new
+      content = scraper.get_content_of(page)
 
-    # Scrape content
-    scraper = Scraper.new
-    content = scraper.get_content_of(page)
+      # Save file
+      File.open("pages/#{page}.txt", 'w') { |file| file.write(content) }
 
-    # Save file
-    File.open("pages/#{page}.txt", 'w') { |file| file.write(content) }
+      # Get words
+      analyzer          = Analyzer.new
+      analyzer.document = document "pages/#{page}.txt"
+      stop_words        = analyzer.parse('stop_words.txt')
+      words             = analyzer.get_words_of_document
+      words             = analyzer.remove_stop_words_from(words, stop_words)
+      words             = analyzer.remove_accents_from(words)
+      words             = $connection.escape(words.join(" "))
 
-    # Get words
-    analyzer          = Analyzer.new
-    analyzer.document = document "pages/#{page}.txt"
-    stop_words        = analyzer.parse('stop_words.txt')
-    words             = analyzer.get_words_of_document
-    words             = analyzer.remove_stop_words_from(words, stop_words)
-    words             = analyzer.remove_accents_from(words)
-    words             = $connection.escape(words.join(" "))
-
-    ## Fill "pages" table
-    $connection.query("INSERT INTO
-      pages(
-        absolute_url,
-        content
+      ## Fill "pages" table
+      $connection.query("INSERT INTO
+        pages(
+          absolute_url,
+          content
+        )
+        VALUES(
+          '#{absolute_url}',
+          '#{words}'
+        )"
       )
-      VALUES(
-        '#{absolute_url}',
-        '#{words}'
-      )"
-    )
+    end
   end
 end
 
