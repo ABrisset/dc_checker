@@ -39,6 +39,7 @@ $connection.query("CREATE TABLE IF NOT EXISTS pages(
                     absolute_url TEXT CHARACTER SET utf8,
                     content TEXT CHARACTER SET utf8,
                     cosine_id BIGINT)")
+$connection.query("CREATE INDEX index_url ON pages (absolute_url(10));")
 $connection.query("TRUNCATE TABLE pages")
 
 ## "Similarity" table
@@ -48,6 +49,8 @@ $connection.query("CREATE TABLE IF NOT EXISTS similarity(
                     url_b TEXT CHARACTER SET utf8,
                     salton_cosine FLOAT,
                     jaccard FLOAT)")
+$connection.query("CREATE INDEX index_url_a ON similarity (url_a(10));")
+$connection.query("CREATE INDEX index_url_b ON similarity (url_b(10));")
 $connection.query("TRUNCATE TABLE similarity")
 
 # Delete existing txt files
