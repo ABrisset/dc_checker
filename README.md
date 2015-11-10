@@ -1,5 +1,6 @@
 # dc_checker
 SEO Ruby script to compute Salton cosine and Jaccard coefficient at a glance.
+Wordks perflectly for websites with less than one hundred pages.
 To make it work, just add a `config` directory and create a `database.yml` file providing your mysql configuration.
 
 ``` yml

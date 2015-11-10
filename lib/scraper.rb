@@ -1,4 +1,5 @@
 class Scraper
+
   def get_content_of(page)
     page.doc
         .xpath('//comment()')
@@ -12,4 +13,5 @@ class Scraper
                                 .gsub(/<[^>]+>/, "\s")
                                 .downcase)
   end
+
 end

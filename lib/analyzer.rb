@@ -34,4 +34,5 @@ class Analyzer
   def remove_accents_from(array)
     array.map{ |e| e.to_ascii }
   end
+
 end
