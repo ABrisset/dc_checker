@@ -55,29 +55,29 @@ $connection.query("CREATE INDEX index_url_a ON similarity (url_a(10));")
 $connection.query("CREATE INDEX index_url_b ON similarity (url_b(10));")
 $connection.query("TRUNCATE TABLE similarity")
 
-# Delete existing txt files
+## Delete existing txt files
 Dir.glob('pages/*.txt').each do |file|
   File.delete(file)
 end
 
-# Start crawl
+## Start crawl
 Anemone.crawl(root_url, :redirect_limit => 1) do |anemone|
   skipped_links = %r{%23.*|\#.*|.*\.(pdf|jpg|jpeg|png|gif)}
   anemone.skip_links_like(skipped_links)
   anemone.on_every_page do |page|
     if page.html? && [200,304].include?(page.code)
-      # Catch absolute URL
+      ## Catch absolute URL
       absolute_url = URI.decode(page.url.to_s)
       puts absolute_url
 
-      # Scrape content
+      ## Scrape content
       scraper = Scraper.new
       content = scraper.get_content_of(page)
 
-      # Save file
+      ## Save file
       File.open("pages/#{page}.txt", 'w') { |file| file.write(content) }
 
-      # Get words
+      ## Get words
       analyzer          = Analyzer.new
       analyzer.document = document "pages/#{page}.txt"
       stop_words        = analyzer.parse('stop_words.txt')
