@@ -60,7 +60,7 @@ Anemone.crawl(root_url, :redirect_limit => 1) do |anemone|
   skipped_links = %r{%23.*|\#.*|.*\.(pdf|jpg|jpeg|png|gif)}
   anemone.skip_links_like(skipped_links)
   anemone.on_every_page do |page|
-    if page.html? && page.code.between?(200,399)
+    if page.html? && [200,304].include?(page.code)
       # Catch absolute URL
       absolute_url = URI.decode(page.url.to_s)
       puts absolute_url
