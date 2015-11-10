@@ -34,7 +34,7 @@ $connection.query("CREATE DATABASE IF NOT EXISTS #{db} CHARACTER SET utf8")
 $connection.select_db("#{db}")
 
 ## "Pages" table
-$connection.query("DROP TABLE pages")
+$connection.query("DROP TABLE IF EXISTS pages")
 $connection.query("CREATE TABLE pages(
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     absolute_url TEXT CHARACTER SET utf8,
@@ -44,7 +44,7 @@ $connection.query("CREATE INDEX index_absolute_url ON pages (absolute_url(10));"
 $connection.query("CREATE INDEX index_cosine_id ON pages (cosine_id);")
 
 ## "Similarity" table
-$connection.query("DROP TABLE similarity")
+$connection.query("DROP TABLE IF EXISTS similarity")
 $connection.query("CREATE TABLE similarity(
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     url_a TEXT CHARACTER SET utf8,
