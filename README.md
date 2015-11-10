@@ -15,5 +15,5 @@ Then just run ./checker.rb followed by a URL and a database name.
 
 ## TO DO
 
-* Check response code and content type to exlude non 200 and non text/html pages
 * Add begin/rescue blocks
+* Improve SQL queries
