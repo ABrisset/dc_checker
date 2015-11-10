@@ -34,16 +34,18 @@ $connection.query("CREATE DATABASE IF NOT EXISTS #{db} CHARACTER SET utf8")
 $connection.select_db("#{db}")
 
 ## "Pages" table
-$connection.query("CREATE TABLE IF NOT EXISTS pages(
+$connection.query("DROP TABLE pages")
+$connection.query("CREATE TABLE pages(
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     absolute_url TEXT CHARACTER SET utf8,
                     content TEXT CHARACTER SET utf8,
                     cosine_id BIGINT)")
-$connection.query("CREATE INDEX index_url ON pages (absolute_url(10));")
-$connection.query("TRUNCATE TABLE pages")
+$connection.query("CREATE INDEX index_absolute_url ON pages (absolute_url(10));")
+$connection.query("CREATE INDEX index_cosine_id ON pages (cosine_id);")
 
 ## "Similarity" table
-$connection.query("CREATE TABLE IF NOT EXISTS similarity(
+$connection.query("DROP TABLE similarity")
+$connection.query("CREATE TABLE similarity(
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     url_a TEXT CHARACTER SET utf8,
                     url_b TEXT CHARACTER SET utf8,
@@ -104,20 +106,24 @@ pages_a = $connection.query("SELECT absolute_url FROM pages")
                      .map{ |row| row['absolute_url'] }
 pages_b = pages_a.dup
 
-pages_a.product(pages_b).each do |line|
-  url_a = line[0]
-  url_b = line[1]
-  $connection.query("INSERT INTO
-    similarity(
-      url_a,
-      url_b
-    )
-    VALUES(
-      '#{url_a}',
-      '#{url_b}'
-    )"
-  )
-end
+pages_a.product(pages_b)
+       .map{ |arr| arr.sort }
+       .uniq
+       .delete_if{ |arr| arr[0] == arr[1] }
+       .each do |line|
+          url_a = line[0]
+          url_b = line[1]
+          $connection.query("INSERT INTO
+            similarity(
+              url_a,
+              url_b
+            )
+            VALUES(
+              '#{url_a}',
+              '#{url_b}'
+            )"
+          )
+        end
 
 ## Compute salton cosine
 corpus        = Corpus.new
