@@ -2,7 +2,6 @@
 
 require 'anemone'
 require 'htmlentities'
-require 'jaccard'
 require 'mysql2'
 require 'similarity'
 require 'stanford-core-nlp'
@@ -49,8 +48,7 @@ $connection.query("CREATE TABLE similarity(
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     url_a TEXT CHARACTER SET utf8,
                     url_b TEXT CHARACTER SET utf8,
-                    salton_cosine FLOAT,
-                    jaccard FLOAT)")
+                    salton_cosine FLOAT)")
 $connection.query("CREATE INDEX index_url_a ON similarity (url_a(10));")
 $connection.query("CREATE INDEX index_url_b ON similarity (url_b(10));")
 $connection.query("TRUNCATE TABLE similarity")
@@ -67,7 +65,7 @@ Anemone.crawl(root_url, :redirect_limit => 1) do |anemone|
   anemone.on_every_page do |page|
     if page.html? && [200,304].include?(page.code)
       ## Catch absolute URL
-      absolute_url = URI.decode(page.url.to_s)
+      absolute_url = $connection.escape(URI.decode(page.url.to_s))
       puts absolute_url
 
       ## Scrape content
@@ -107,9 +105,7 @@ pages_a = $connection.query("SELECT absolute_url FROM pages")
 pages_b = pages_a.dup
 
 pages_a.product(pages_b)
-       .map{ |arr| arr.sort }
        .uniq
-       .delete_if{ |arr| arr[0] == arr[1] }
        .each do |line|
           url_a = line[0]
           url_b = line[1]
@@ -145,7 +141,7 @@ array_of_docs.each do |doc|
   corpus.similar_documents(doc).each do |d, similarity|
     doc_a = doc.id
     doc_b = d.id
-    $connection.query("UPDATE similarity
+    $connection.query("UPDATE <similarity></similarity>
                        SET salton_cosine = '#{similarity}'
                        WHERE url_a =
                         (
@@ -161,26 +157,4 @@ array_of_docs.each do |doc|
                         )
                       ")
   end
-end
-
-## Compute jaccard coefficient index
-pages = $connection.query("SELECT url_a,url_b FROM similarity")
-pages.each do |row|
-  content_a = ""
-  content_b = ""
-  url_a     = row["url_a"]
-  url_b     = row["url_b"]
-  $connection.query("SELECT content
-                     FROM pages
-                     WHERE absolute_url = '#{url_a}'")
-             .each{ |row|  content_a = row["content"].split(" ") }
-  $connection.query("SELECT content
-                     FROM pages
-                     WHERE absolute_url = '#{url_b}'")
-             .each{ |row| content_b = row["content"].split(" ") }
-  jaccard = Jaccard.coefficient(content_a, content_b)
-  $connection.query("UPDATE similarity
-                     SET jaccard = '#{jaccard}'
-                     WHERE url_a = '#{url_a}'
-                     AND url_b   = '#{url_b}'")
 end

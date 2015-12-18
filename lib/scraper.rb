@@ -10,6 +10,7 @@ class Scraper
         .remove
     HTMLEntities.new.decode(page.doc
                                 .to_html
+                                .scrub("")
                                 .gsub(/<[^>]+>/, "\s")
                                 .downcase)
   end
